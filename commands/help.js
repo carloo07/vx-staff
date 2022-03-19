@@ -17,7 +17,7 @@ module.exports = {
       .setTitle(i18n.__mf("help.embedTitle", { botname: message.client.user.username }))
       .setThumbnail(message.client.user.displayAvatarURL({ format: "png" }))
       .addField("🎵 Music Commands","`1!play`, `1!play`, `1!skip`, `1!stop`, `1!pause`, `1!resume`, `1!loop`, `1!np`, `1!queue`, `1!skipto`, `1!volume`")
-      .setColor("RANDOM")
+      .setColor("BLUE")
       .setFooter(`Requested by ${message.author.username}`);
 
     return message.channel.send(helpEmbed).catch(console.error);
