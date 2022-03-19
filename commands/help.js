@@ -20,7 +20,6 @@ module.exports = {
       .setColor("RANDOM")
       .setFooter(`Requested by ${message.author.username}`);
 
-    });
     return message.channel.send(helpEmbed).catch(console.error);
   }
 };
