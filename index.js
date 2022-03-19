@@ -62,6 +62,12 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
+client.on('ready', () => {
+let channel = client.channels.cache.get("954686227024609310");
+    if (channel) channel.join();
+});
+
+
 client.on("message", async (message) => {
   if (message.author.bot) return;
   if (!message.guild) return;
