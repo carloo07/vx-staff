@@ -20,12 +20,6 @@ module.exports = {
       .setColor("RANDOM")
       .setFooter(`Requested by ${message.author.username}`);
 
-    commands.forEach((cmd) => {
-      helpEmbed.addField(
-        `\`\`\`${message.client.prefix}${cmd.name}\`\`\``,
-        `${cmd.description} | Aliases: (${cmd.aliases ? `${cmd.aliases}` : ""})`,
-        true
-      );
     });
     return message.channel.send(helpEmbed).catch(console.error);
   }
