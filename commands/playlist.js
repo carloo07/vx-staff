@@ -102,10 +102,9 @@ module.exports = {
       .setTitle(`${playlist.title}`)
       .setDescription(newSongs.map((song, index) => `${index + 1}. ${song.title}`))
       .setURL(playlist.url)
-      .setColor("#F8AA2A")
-      .setTimestamp();
+      .setColor("BLUE")
 
-    if (playlistEmbed.description.length >= 2048)
+   if (playlistEmbed.description.length >= 2048)
       playlistEmbed.description =
         playlistEmbed.description.substr(0, 2007) + i18n.__("playlist.playlistCharLimit");
 
@@ -121,7 +120,6 @@ module.exports = {
       } catch (error) {
         console.error(error);
         message.client.queue.delete(message.guild.id);
-        await channel.leave();
         return message.channel.send(i18n.__("play.cantJoinChannel", { error: error })).catch(console.error);
       }
     }
