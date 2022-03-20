@@ -93,13 +93,13 @@ module.exports = {
         .setFooter(`Requested by ${message.author.username}`)
         .setColor("BLUE")
       );
-      await playingMessage.react("⏭");
-      await playingMessage.react("⏯");
-      await playingMessage.react("🔇");
-      await playingMessage.react("🔉");
-      await playingMessage.react("🔊");
-      await playingMessage.react("🔁");
-      await playingMessage.react("⏹");
+      await playingMessage.react("");
+      await playingMessage.react("");
+      await playingMessage.react("");
+      await playingMessage.react("");
+      await playingMessage.react("");
+      await playingMessage.react("");
+      await playingMessage.react("");
     } catch (error) {
       console.error(error);
     }
@@ -114,7 +114,7 @@ module.exports = {
       const member = message.guild.member(user);
 
       switch (reaction.emoji.name) {
-        case "⏭":
+        case "":
           queue.playing = true;
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return i18n.__("common.errorNotChannel");
@@ -123,7 +123,7 @@ module.exports = {
           collector.stop();
           break;
 
-        case "⏯":
+        case "":
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return i18n.__("common.errorNotChannel");
           if (queue.playing) {
@@ -137,7 +137,7 @@ module.exports = {
           }
           break;
 
-        case "🔇":
+        case "":
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return i18n.__("common.errorNotChannel");
           if (queue.volume <= 0) {
@@ -151,7 +151,7 @@ module.exports = {
           }
           break;
 
-        case "🔉":
+        case "":
           reaction.users.remove(user).catch(console.error);
           if (queue.volume == 0) return;
           if (!canModifyQueue(member)) return i18n.__("common.errorNotChannel");
@@ -163,7 +163,7 @@ module.exports = {
             .catch(console.error);
           break;
 
-        case "🔊":
+        case "":
           reaction.users.remove(user).catch(console.error);
           if (queue.volume == 100) return;
           if (!canModifyQueue(member)) return i18n.__("common.errorNotChannel");
@@ -175,7 +175,7 @@ module.exports = {
             .catch(console.error);
           break;
 
-        case "🔁":
+        case "":
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return i18n.__("common.errorNotChannel");
           queue.loop = !queue.loop;
@@ -189,7 +189,7 @@ module.exports = {
             .catch(console.error);
           break;
 
-        case "⏹":
+        case "":
           reaction.users.remove(user).catch(console.error);
           if (!canModifyQueue(member)) return i18n.__("common.errorNotChannel");
           queue.songs = [];
@@ -198,7 +198,6 @@ module.exports = {
             queue.connection.dispatcher.end();
           } catch (error) {
             console.error(error);
-            queue.connection.disconnect();
           }
           collector.stop();
           break;
