@@ -25,7 +25,9 @@ module.exports = {
     if (!song) {
       setTimeout(function () {
         if (queue.connection.dispatcher && message.guild.me.voice.channel) return;
-       },
+        queue.textChannel.send(i18n.__(""));
+      }, STAY_TIME * 1000);
+      queue.textChannel.send(i18n.__("")).catch(console.error);
       return message.client.queue.delete(message.guild.id);
     }
 
